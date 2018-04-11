@@ -6,7 +6,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        ArgsValidator argsValid = new ArgsValidator(args);
+        ArgsValidator argsValid = new ArgsValidator();
         /*
         Uruchomienie java -jar cipher.jar <action> "<source file>" "<destination file>" <algorithm>
         ○action - szyfrowanie lub deszyfrowanie.

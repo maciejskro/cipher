@@ -7,7 +7,7 @@ public class CesarCipher implements Cipher {
     public String encrypt(String input) {
         StringBuilder result = new StringBuilder();
         for (char c : input.toCharArray()) {
-            result.append( (char)(((int) c) + getKey()) );
+            result.append( (char) (((int) c) + getKey()) % Character.MAX_VALUE   );
         }
         return result.toString();
     }
@@ -15,7 +15,7 @@ public class CesarCipher implements Cipher {
     public String decrypt(String input) {
         StringBuilder result = new StringBuilder();
         for (char c : input.toCharArray()) {
-            result.append((char) ((int) c - getKey() ) );
+            result.append((char) ((int) c +Character.MAX_VALUE  - getKey() ) %Character.MAX_VALUE );
         }
         return result.toString();
     }
@@ -26,7 +26,7 @@ public class CesarCipher implements Cipher {
 
     public CesarCipher(Integer key) {
         if ((key % Character.MAX_VALUE) == 0 ) {
-            throw new IllegalArgumentException("Nieprawidłowy klucz do szywfowania - powinien być mięcy 1 - 65534" );
+            throw new IllegalArgumentException("Illegal key for encrypted - should be between  1 - 65534" );
         } else
          this.key = key % Character.MAX_VALUE ;
        }
