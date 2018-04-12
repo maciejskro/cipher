@@ -22,4 +22,5 @@ public class AESCipher implements Cipher {
     public Integer getKey() {
         return null;
     }
+
 }
